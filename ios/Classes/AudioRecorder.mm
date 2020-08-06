@@ -4,6 +4,8 @@
 //
 //  Created by larpoux on 02/05/2020.
 //
+
+//최종 수정 20/08/06
 /*
  * Copyright 2018, 2019, 2020 Dooboolab.
  *
@@ -220,13 +222,9 @@ public:
            [audioRecorder updateMeters];
            [audioRecorder setMeteringEnabled: YES];
 
+            NSNumber* rawValue = [NSNumber numberWithDouble:[audioRecorder averagePowerForChannel:0]];
 
-//            NSNumber* normalizedPeakLevel = [NSNumber numberWithDouble:MAX(0.2, [audioRecorder peakPowerForChannel:0] + 50)/ 2];
-
-
-            NSNumber* normalizedPeakLevel2 = [NSNumber numberWithDouble:MAX(0.2, [audioRecorder averagePowerForChannel:0] + 50)/ 2]; // 0~25
-
-        return normalizedPeakLevel2;
+        return rawValue;
 
         }
 
