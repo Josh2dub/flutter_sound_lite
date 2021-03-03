@@ -260,9 +260,7 @@ public:
         NSNumber* recorderProgress()
         {
                 NSNumber* duration =    [NSNumber numberWithLong: (long)(audioRecorder.currentTime * 1000 )];
-
-                
-                [audioRecorder updateMeter];
+                [audioRecorder updateMeters];
                 return duration;
         }
         virtual NSNumber* dbPeakProgress()

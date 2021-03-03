@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdf1bf67-b966-4dae-b287-4f323375fb2f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/flutter_sound_lite.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/flutter_sound_lite.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/dooboolab/fluttersound/FlutterSoundRecorder.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/dooboolab/fluttersound/FlutterSoundRecorder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ios/Classes/FlutterSoundRecorder.mm" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/FlutterSoundRecorder.mm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ios/flutter_sound_lite.podspec" beforeDir="false" afterPath="$PROJECT_DIR$/ios/flutter_sound_lite.podspec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,5 +59,23 @@
       <updated>1596679032785</updated>
     </task>
     <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1878" height="285" key="GridCell.Tab.0.bottom" timestamp="1614751366498">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="285" key="GridCell.Tab.0.bottom/1920.1103.1680.1027/0.23.1920.1057@0.23.1920.1057" timestamp="1614751366498" />
+    <state width="1878" height="285" key="GridCell.Tab.0.center" timestamp="1614751366498">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="285" key="GridCell.Tab.0.center/1920.1103.1680.1027/0.23.1920.1057@0.23.1920.1057" timestamp="1614751366498" />
+    <state width="1878" height="285" key="GridCell.Tab.0.left" timestamp="1614751366497">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="285" key="GridCell.Tab.0.left/1920.1103.1680.1027/0.23.1920.1057@0.23.1920.1057" timestamp="1614751366497" />
+    <state width="1878" height="285" key="GridCell.Tab.0.right" timestamp="1614751366498">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="285" key="GridCell.Tab.0.right/1920.1103.1680.1027/0.23.1920.1057@0.23.1920.1057" timestamp="1614751366498" />
   </component>
 </project>
