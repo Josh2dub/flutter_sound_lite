@@ -17,36 +17,27 @@
  */
 
 
+
+#ifndef FlutterSoundPlayer_h
+#define FlutterSoundPlayer_h
+
+
+
 #import <Flutter/Flutter.h>
 #import <AVFoundation/AVFoundation.h>
-#import "FlautoManager.h"
-#import "Flauto.h"
+#import "PlayerEngine.h"
+#import "FlautoPlayerManager.h"
+#import "PlayerEngine.h"
 
-
-extern void FlautoPlayerReg(NSObject<FlutterPluginRegistrar>* registrar);
-//extern NSMutableArray* flautoPlayerSlots;
-
-@interface FlautoPlayerManager : FlautoManager
-{
-}
-
-+ (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar;
-- (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result;
-//- (void)invokeMethod: (NSString*)methodName arguments: (NSDictionary*)call;
-//- (void)freeSlot: (int)slotNo;
-@end
 
 @interface FlutterSoundPlayer : Session
 {
-        AVAudioPlayer *audioPlayer;
-        bool isPaused ;
+        NSObject<PlayerInterface>* player;
+         
 }
 
 - (FlautoPlayerManager*) getPlugin;
 - (Session*) init: (FlutterMethodCall*)call;
-//- (void) releaseSession;
-
-
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag;
 - (void)isDecoderSupported:(t_CODEC)codec result: (FlutterResult)result;
 - (void)updateProgress:(NSTimer *)timer;
@@ -55,12 +46,13 @@ extern void FlautoPlayerReg(NSObject<FlutterPluginRegistrar>* registrar);
 - (void)pausePlayer:(FlutterResult)result;
 - (void)resumePlayer:(FlutterResult)result;
 - (void)stopTimer;
-- (void)pause;
+- (bool)pause;
 - (bool)resume;
-- (void)startPlayer:(NSString*)path result: (FlutterResult)result;
+- (void)startPlayer:(FlutterMethodCall*)path result: (FlutterResult)result;
+- (void)getProgress:(FlutterMethodCall*)call result: (FlutterResult)result;
 - (void)startPlayerFromTrack:(FlutterMethodCall*)call result: (FlutterResult)result;
 - (void)startPlayerFromBuffer:(FlutterStandardTypedData*)dataBuffer result: (FlutterResult)result;
-- (void)seekToPlayer:(nonnull NSNumber*) time result: (FlutterResult)result;
+- (void)seekToPlayer:(FlutterMethodCall*) time result: (FlutterResult)result;
 - (void)setSubscriptionDuration:(FlutterMethodCall*)call result: (FlutterResult)result;
 - (void)setVolume:(double) volume result: (FlutterResult)result;
 - (void)setCategory: (NSString*)categ mode:(NSString*)mode options:(int)options result:(FlutterResult)result;
@@ -68,8 +60,23 @@ extern void FlautoPlayerReg(NSObject<FlutterPluginRegistrar>* registrar);
 - (void)initializeFlautoPlayer: (FlutterMethodCall*)call result: (FlutterResult)result;
 - (void)releaseFlautoPlayer: (FlutterMethodCall*)call result: (FlutterResult)result;
 - (void)setAudioFocus: (FlutterMethodCall*)call result: (FlutterResult)result;
+- (void)setUIProgressBar:(FlutterMethodCall*)call result: (FlutterResult)result;
+- (void)nowPlaying:(FlutterMethodCall*)call result: (FlutterResult)result;
+- (void)getPlayerState:(FlutterMethodCall*)call result: (FlutterResult)result;
+- (void)stopPlayer:(FlutterMethodCall*)call  result:(FlutterResult)result;
+- (NSNumber*)getPlayerStatus;
+- (int)getStatus;
+- (long)getPosition;
+- (long)getDuration;
+- (void)feed:(FlutterMethodCall*)call result: (FlutterResult)result;
+- (void)needSomeFood: (int) ln;
+
+
+
+
 
 
 @end
 
+#endif // FlutterSoundPlayer_h
 

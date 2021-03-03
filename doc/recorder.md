@@ -9,6 +9,7 @@ The verbs offered by the Flutter Sound Player module are :
 
 - [Default constructor](#creating-the-player-instance)
 - [openAudioSession() and closeAudioSession()](#openAudioSession-and-closeAudioSession) to open or close and audio session
+- [setAudioFocus()](#setaudiofocus) to manage the session Audio Focus
 - [startRecorder()](#startrecorder) to start your recorder
 - [stopRecorder()](#stoprecorder) to stop your current record.
 - [pauseRecorder()](#pauserecorder) to pause the current record
@@ -98,6 +99,42 @@ The four optional parameters are used if you want to control the Audio Focus. Pl
     myRecorder = null;
 ```
 
+------------------------------------------------------------------------------------------------------------------
+
+## `setAudioFocus()`
+
+*Dart definition (prototype) :*
+```
+Future<void> setAudioFocus
+({
+        AudioFocus focus = AudioFocus.requestFocusTransient,
+        SessionCategory category = SessionCategory.playAndRecord,
+        SessionMode mode = SessionMode.modeDefault,
+        int audioFlags = outputToSpeaker,
+        AudioDevice device = AudioDevice.speaker,
+})
+```
+
+### `focus:` parameter possible values are
+- AudioFocus.requestFocus (request focus, but do not do anything special with others App)
+- AudioFocus.requestFocusAndStopOthers (your app will have **exclusive use** of the output audio)
+- AudioFocus.requestFocusAndDuckOthers (if another App like Spotify use the output audio, its volume will be **lowered**)
+- AudioFocus.requestFocusAndKeepOthers (your App will play sound **above** others App)
+- AudioFocus.requestFocusAndInterruptSpokenAudioAndMixWithOthers
+- AudioFocus.requestFocusTransient (for Android)
+- AudioFocus.requestFocusTransientExclusive (for Android)
+- AudioFocus.abandonFocus (Your App will not have anymore the audio focus)
+
+### Other parameters :
+
+Please look to [openAudioSession()](player.md#openaudiosession-and-closeaudiosession) to understand the meaning of the other parameters
+
+
+*Example:*
+```dart
+        myPlayer.setAudioFocus(focus: AudioFocus.requestFocusAndDuckOthers);
+```
+
 -----------------------------------------------------------------------------------------------------------------
 
 ## `startRecorder()`
@@ -108,7 +145,7 @@ The four optional parameters are used if you want to control the Audio Focus. Pl
         {
                 Codec codec = Codec.aacADTS,
                 String toFile,
-                Stream toStream,
+                StreamSink toStream,
                 int sampleRate = 16000,
                 int numChannels = 1,
                 int bitRate = 16000,
@@ -120,7 +157,7 @@ You use `startRecorder()` to start recording in an open session. `startRecorder(
 It has also 7 optional parameters to specify :
 - codec: The codec to be used. Please refer to the [Codec compatibility Table](codec.md#actually-the-following-codecs-are-supported-by-flutter_sound) to know which codecs are currently supported.
 - toFile: a path to the file being recorded
-- toStream: if you want to record to a Dart Stream *(not yet implemented)*
+- toStream: if you want to record to a Dart Stream. Please look to [the following notice](codec.md#recording-pcm-16-to-a-dart-stream). **This new functionnality needs, at least, Android SDK >= 21 (23 is better)**
 - sampleRate: The sample rate in Hertz
 - numChannels: The number of channels (1=monophony, 2=stereophony)
 - bitRate: The bit rate in Hertz

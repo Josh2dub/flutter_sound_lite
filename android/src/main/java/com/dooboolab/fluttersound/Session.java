@@ -19,6 +19,8 @@
 
 package com.dooboolab.fluttersound;
 
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothProfile;
 import android.content.Context;
 import android.media.AudioFocusRequest;
 import android.media.AudioManager;
@@ -54,11 +56,28 @@ enum AudioFocus {
 	abandonFocus,
 
 	doNotRequestFocus,
-};
+}
+
+enum AudioDevice {
+	speaker,
+	headset,
+	earPiece,
+	blueTooth,
+	blueToothA2DP,
+	airPlay
+}
+
 
 
 public abstract class Session
 {
+	final int outputToSpeaker = 1;
+	final int allowHeadset = 2;
+	final int allowEarPiece = 4;
+	final int allowBlueTooth = 8;
+	final int allowAirPlay = 16;
+	final int allowBlueToothA2DP = 32;
+
 
 	final static int CODEC_OPUS   = 2;
 	final static int CODEC_VORBIS = 5;
@@ -74,7 +93,7 @@ public abstract class Session
 		slotNo = slot;
 	}
 
-	abstract AudioSessionManager getPlugin ();
+	abstract FlautoManager getPlugin ();
 
 	void releaseSession()
 	{
@@ -98,6 +117,24 @@ public abstract class Session
 		getPlugin ().invokeMethod ( methodName, dic );
 	}
 
+
+	void invokeMethodWithInteger ( String methodName, int arg )
+	{
+		Map<String, Object> dic = new HashMap<String, Object> ();
+		dic.put ( "slotNo", slotNo );
+		dic.put ( "arg", arg );
+		getPlugin ().invokeMethod ( methodName, dic );
+	}
+
+
+	void invokeMethodWithBoolean ( String methodName, boolean arg )
+	{
+		Map<String, Object> dic = new HashMap<String, Object> ();
+		dic.put ( "slotNo", slotNo );
+		dic.put ( "arg", arg );
+		getPlugin ().invokeMethod ( methodName, dic );
+	}
+
 	void invokeMethodWithMap ( String methodName, Map<String, Object>  dic )
 	{
 		dic.put ( "slotNo", slotNo );
@@ -107,17 +144,16 @@ public abstract class Session
 
 	boolean prepareFocus( final MethodCall call)
 	{
-		audioManager = ( AudioManager ) FlautoPlayerPlugin.androidContext.getSystemService ( Context.AUDIO_SERVICE );
-
 		boolean r = true;
-		audioManager = ( AudioManager ) FlautoPlayerPlugin.androidContext.getSystemService( Context.AUDIO_SERVICE );
+		audioManager = ( AudioManager ) FlautoPlayerManager.androidContext.getSystemService( Context.AUDIO_SERVICE );
 		AudioFocus focus = AudioFocus.values()[(int)call.argument ( "focus" )];
+		AudioDevice device = AudioDevice.values()[(int)call.argument( "device" )];
 
-		if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.O )
+		int audioFlags = call.argument( "audioFlags" );
+		if ( Build.VERSION.SDK_INT >= 26 )
 		{
 			if ( focus != AudioFocus.abandonFocus && focus != AudioFocus.doNotRequestFocus && focus != AudioFocus.requestFocus )
 			{
-				int audioFlags = call.argument( "audioFlags" );
 				int focusGain = AudioManager.AUDIOFOCUS_GAIN;
 
 				switch (focus)
@@ -133,41 +169,76 @@ public abstract class Session
 					// .setAudioAttributes(mPlaybackAttributes)
 					.build();
 
-				/*
-				if (flags & outputToSpeaker)
-					sessionCategoryOption |= AVAudioSessionCategoryOptionDefaultToSpeaker;
-				if (flags & allowAirPlay)
-					sessionCategoryOption |= AVAudioSessionCategoryOptionAllowAirPlay;
-				if (flags & allowBlueTooth)
-					sessionCategoryOption |= AVAudioSessionCategoryOptionAllowBluetooth;
-				if (flags & allowBlueToothA2DP)
-					sessionCategoryOption |= AVAudioSessionCategoryOptionAllowBluetoothA2DP;
-				 */
+				// change the audio input/output device
+				switch (device)
+				{
+					case speaker:
+						//if (isBluetoothHeadsetConnected())
+							//audioManager.setMode(AudioManager.MODE_IN_COMMUNICATION);
+						//else
+							//audioManager.setMode(AudioManager.MODE_NORMAL);
+						audioManager.stopBluetoothSco();
+						audioManager.setBluetoothScoOn(false);
+						audioManager.setSpeakerphoneOn(true);
+						break;
+					case blueTooth:
+					case blueToothA2DP:
+						//audioManager.setMode(AudioManager.MODE_IN_COMMUNICATION);
+						if (isBluetoothHeadsetConnected())
+						{
+							audioManager.startBluetoothSco();
+							audioManager.setBluetoothScoOn(true);
+						}
+						audioManager.setSpeakerphoneOn(false);
+						break;
+					case earPiece:
+					case headset:
+						//audioManager.setMode(AudioManager.MODE_IN_COMMUNICATION);
+						audioManager.stopBluetoothSco();
+						audioManager.setBluetoothScoOn(false);
+						audioManager.setSpeakerphoneOn(false);
+				}
+
+
 			}
 
 			if (focus != AudioFocus.doNotRequestFocus)
 			{
 				hasFocus = (focus != AudioFocus.abandonFocus);
-				//r = [[AVAudioSession sharedInstance]  setActive: hasFocus error:nil] ;
 				if (hasFocus)
 					audioManager.requestAudioFocus ( audioFocusRequest );
 				else
 					audioManager.abandonAudioFocusRequest ( audioFocusRequest );
 			}
-		}
+
+		audioManager.setSpeakerphoneOn( (audioFlags &  outputToSpeaker) != 0);
+		audioManager.setBluetoothScoOn( (audioFlags & allowBlueTooth) != 0);
+		if ((audioFlags & allowBlueTooth) != 0)
+			audioManager.startBluetoothSco();
+		else
+			audioManager.stopBluetoothSco();
+		audioManager.setBluetoothA2dpOn(  (audioFlags & allowBlueToothA2DP) != 0 );
+		audioManager.setMode( AudioManager.MODE_NORMAL );
+		} else
+			r = false;
+
 		return r;
 	}
 
-	void setFocus( final MethodCall call, final MethodChannel.Result result )
+	void setAudioFocus(final MethodCall call, final MethodChannel.Result result )
 	{
 		boolean r = prepareFocus(call);
+		if (r)
+			result.success ( r);
+		else
+			result.error ( "setFocus", "setFocus", "Failure to prepare focus");
 
 	}
 
 
 	boolean requestFocus ()
 	{
-		if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.O )
+		if ( Build.VERSION.SDK_INT >= 26)
 		{
 			if ( audioFocusRequest == null )
 			{
@@ -188,7 +259,7 @@ public abstract class Session
 
 	boolean abandonFocus ()
 	{
-		if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.O )
+		if ( Build.VERSION.SDK_INT >= 26)
 		{
 			if ( audioFocusRequest == null )
 			{
@@ -208,7 +279,11 @@ public abstract class Session
 
 	}
 
-
-
+	private static boolean isBluetoothHeadsetConnected() {
+		BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
+		if (adapter == null)
+			return false;
+		return (BluetoothProfile.STATE_CONNECTED == adapter.getProfileConnectionState(BluetoothProfile.HEADSET));
+	}
 
 }

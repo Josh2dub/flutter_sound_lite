@@ -1,5 +1,5 @@
 name: flutter_sound_lite
-version: 1.0.1
+version: 6.1.2
 description: Flutter plugin that relates to sound like audio and recorder.
 #author: dooboolab<dooboolab@gmail.com>
 homepage: https://github.com/dooboolab/flutter_sound
@@ -10,15 +10,17 @@ dependencies:
   path_provider: ">=1.0.0 <2.0.0"
   logger: ^0.7.0+2
   intl: ^0.16.1
-  recase: ^2.0.1
+  recase: ^3.0.0
   uuid: ^2.0.4
   provider: ^4.1.0
   flutter_spinkit: ^4.0.0
   path: ">=1.0.0 <2.0.0"
+  synchronized: ^2.2.0
+  flutter_sound_platform_interface: ^1.0.0
+
+
   flutter:
     sdk: flutter
-  #permission_handler: ">=5.0.0 <6.0.0"
-  #flutter_ffmpeg: ">=0.2.0 <1.0.0"
 
 dev_dependencies:
   flutter_test:
@@ -41,12 +43,6 @@ flutter:
         pluginClass: Flauto
       ios:
         pluginClass: Flauto
-    ##androidPackage: com.dooboolab.fluttersound
-    ##pluginClass: Flauto
-
-
-    #androidPackage: xyz.canardoux.flauto
-    #pluginClass: FlutterSoundPlugin
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:

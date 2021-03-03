@@ -88,9 +88,9 @@ public class BackgroundAudioService
 	// public static boolean includeAudioPlayerFeatures;
 	//public static Activity activity;
 
-	public final static int PLAYING_STATE = 0;
-	public final static int PAUSED_STATE  = 1;
-	public final static int STOPPED_STATE = 2;
+	public final static int PLAYING_STATE = 1;
+	public final static int PAUSED_STATE  = 2;
+	public final static int STOPPED_STATE = 0;
 
 	/**
 	 * The track that we're currently playing
@@ -528,7 +528,8 @@ public class BackgroundAudioService
 		// Request the partial wake lock permission
 		mMediaPlayer.setWakeMode( getApplicationContext(), PowerManager.PARTIAL_WAKE_LOCK );
 		// Set the media player stream type and volume
-		mMediaPlayer.setAudioStreamType( AudioManager.STREAM_MUSIC );
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
+			mMediaPlayer.setAudioAttributes(new AudioAttributes.Builder().setContentType(AudioAttributes.CONTENT_TYPE_MUSIC).build());
 		mMediaPlayer.setVolume( 1.0f, 1.0f );
 		// Set the onCompletion listener
 		mMediaPlayer.setOnCompletionListener( this );
@@ -645,7 +646,7 @@ public class BackgroundAudioService
 		// Add the track duration
 		metadataBuilder.putLong( MediaMetadataCompat.METADATA_KEY_DURATION, mMediaPlayer.getDuration() );
 		// Include the other metadata if the audio player features should be included
-		if ( true )
+		//if ( true )
 		{
 			// Add the display icon and the album art
 			metadataBuilder.putBitmap( MediaMetadataCompat.METADATA_KEY_DISPLAY_ICON, albumArt );

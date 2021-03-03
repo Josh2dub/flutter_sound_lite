@@ -1,5 +1,5 @@
-name: flutter_sound_demo
-description: Demonstrates how to use the flutter_sound plugin.
+name: example
+description: Driver for the various Flutter Sound examples
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -9,19 +9,14 @@ description: Demonstrates how to use the flutter_sound plugin.
 # Read more about versioning at semver.org.
 version: 1.0.0+1
 
-
-
-environment:
-  sdk: ">=2.2.2 <3.0.0"
-
 dependencies:
   flutter:
     sdk: flutter
   flutter_sound_lite:
     path: ../
-  just_audio: ^0.2.2
-  rxdart: ^0.24.1
-  sound_stream: ^0.2.0
+  #flutter_sound_web:
+    #path: ../../flutter_sound_web
+
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -29,7 +24,7 @@ dependencies:
   cupertino_icons: ^0.1.3
   path_provider: ^1.6.1
   path: ^1.6.4
-  permission_handler: ">=5.0.0 <6.0.0"
+  permission_handler: ^5.0.1
 
 
 dev_dependencies:
@@ -74,7 +69,7 @@ flutter:
   - res/icons/3.0x/ic_volume_up.png
 
   - assets/samples/
-  - assets/canardo.png
+  - assets/noises/
   - assets/
 
 

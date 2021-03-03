@@ -1,3 +1,65 @@
+## 6.1.2
+
+- Playback from a remote URL [#470](https://github.com/dooboolab/flutter_sound/issues/470)
+
+## 6.1.1
+
+- Volume control with the volume buttons, on Android. [#457](https://github.com/dooboolab/flutter_sound/issues/457)
+
+## 6.1.0
+
+- Re-design the modules architecture to be Google recommandations compliant. (We use a new dependency : `flutter_sound_platform_interface`)
+- `openAudioSessionWithUI` is now deprecated. Use the parameter `withUI` in `openAudioSession()` instead.
+- Upgrade "recase" version dependency (thanks to @CRJFisher) [#471](https://github.com/dooboolab/flutter_sound/pull/471)
+
+## 6.0.1
+
+- Little bug in the Demo App : 48000 is not a valid Sample rate for AAC/ADTS [#460](https://github.com/dooboolab/flutter_sound/issues/460)
+
+## 6.0.0
+
+- Modification to the Widget Recorder UI, to be homogeneous with the Widget Player UI
+- Fix two severe bugs on Android in openAudioSessionWithUI and startPlayerFromTrack : those two functions returned too early instead of a future. [#425](https://github.com/dooboolab/flutter_sound/issues/425)
+- On iOS, the device did not go to sleep when idle, with the Flutter Sound default parameters. [#439](https://github.com/dooboolab/flutter_sound/issues/439)
+- startPlayer() and startPlayerFromTrack() return a Future to the record duration instead of a void.
+- Flutter Sound **FULL** is now linked (again) with mobile-ffmpeg-audio 4.3.1.LTS. Please, look to [the migration guide](doc/migration_6.x.x.md#migration-from-5xx-to-6xx)
+- Fix a concurrency bug between `whenFinished()` and `updateProgress()` [#441](https://github.com/dooboolab/flutter_sound/issues/441)
+- Android : minAndroidSdk is 18. (Tested on a SDK 18 emulator). SDK 18 is fine for the FlutterSoundPlayer, but the FlutterSoundRecorder needs at least 23. [#400](https://github.com/dooboolab/flutter_sound/issues/400)
+- New helper API verb : [pcmToWave()](doc/helper.md#pcmtowave)  to add a WAVE header in front of a Raw PCM record
+- New helper API verb : [pcmToWaveBuffer()](doc/helper.md#pcmtowavebuffer)  to add a WAVE header in front of a Raw PCM buffer
+- New helper API verb : [waveToPCM()](doc/helper.md#waveToPCM)  to remove a WAVE header in front of a Wave record
+- New helper API verb : [waveToPCMBuffer()](doc/helper.md#waveToPCMBuffer)  to remove a WAVE header in front of a Wave buffer
+- [startRecorder()](doc/recorder.md#startrecorder) can now record **Raw PCM Integers/Linear 16** files, both on iOS and Android (Look to a [PCM discussion, here](doc/codec.md#note-on-raw-pcm-and-wave-files))
+- [startplayer()](doc/recorder.md#startplayer) can now play **Raw PCM Integers/Linear 16** files, both on iOS and Android (Look to a [PCM discussion, here](doc/codec.md#note-on-raw-pcm-and-wave-files))
+- Fix concurrency bug, when the App does a `stopRecorder()` or `pauseRecorder()` during `recorderTicker()` processing, [#443](https://github.com/dooboolab/flutter_sound/issues/443)
+- Fix a bug when we keep the device in pause mode on the iOS lock screen more than 30 seconds [#451](https://github.com/dooboolab/flutter_sound/issues/451)
+- Recording PCM-Linear 16 to a live Stream (many, many, many requesters). [Here a GettingStarted notice](doc/codec.md#recording-pcm-16-to-a-dart-stream)
+- Playback PCM-Linear 16 from a live Stream (many, many, many requesters). [Here a GettingStarted notice](doc/codec.md#playing-pcm-16-from-a-dart-stream)
+
+## 5.1.1
+
+- Fix various bugs in UI Widget [#407](https://github.com/dooboolab/flutter_sound/issues/407)
+- Add a button Pause/Resume in UI Widget Recorder
+- Add a button Pause/Resume in UI Widget Player
+
+## 5.1.0
+
+- Add a semaphore so that the App cannot do several call to Flutter Sound at the same time [#374](https://github.com/dooboolab/flutter_sound/issues/374)
+- On iOS : the "NowPlaying" info on the lockscreen is removed when the sound is finished or when the App does a ```stopPlayer()```. Add parameter ```removeUIWhenStopped``` to ```startPlayerFromTrack()```. (iOS only).
+- On iOS : the "NowPlaying" progress bar on the lockscreen is uptodated when the App does a ```seekToPlayer()``` [#364](https://github.com/dooboolab/flutter_sound/issues/364)
+- On iOS : Add parameter ```defaultPauseResume``` to ```startPlayerFromTrack()```. (iOS only).
+- On iOS : Add API verb ```getProgress()```. (iOS only).
+- On iOS : Add API verb ```getPlayerState()```. (iOS only).
+- On iOS : Add API verb ```nowPlaying()```. (iOS only).
+- On iOS : Add API verb ```setUIProgressBar()```. (iOS only). [#376](https://github.com/dooboolab/flutter_sound/issues/376)
+- Fixes bug [#380](https://github.com/dooboolab/flutter_sound/issues/380), [#385](https://github.com/dooboolab/flutter_sound/pull/385)
+- Fixes bug "AudioFlags and AudioSource not work as expect " [#366](https://github.com/dooboolab/flutter_sound/issues/366), [#372](https://github.com/dooboolab/flutter_sound/pull/372), [#381](https://github.com/dooboolab/flutter_sound/pull/381)
+- New parameters in the `SoundPlayerUI` constructors for specifying colors, text style and slider style. [#397](https://github.com/dooboolab/flutter_sound/issues/397)
+
+## 5.0.2
+
+Error returns from iOS in FlutterSoundPlayer.m was wrong : [#350](https://github.com/dooboolab/flutter_sound/pull/350)
+
 ## 5.0.1
 
 - Flutter Sound V5 is published under the LGPL license.
@@ -12,6 +74,18 @@
 - Remove the authorization request from `startRecorder()`
 - Remove the NULL posted when the player or the recorder is closed.
 - The Audio Focus is **NOT** automaticaly abandoned between two `startPlayer()` or two `startRecorder()`
+
+## 4.0.7
+
+- Patch to avoid problems when the App does s stopPlayer() during a startPlayer() [#374](https://github.com/dooboolab/flutter_sound/issues/374)
+
+## 4.0.6
+
+- Error returns from iOS in FlutterSoundPlayer.m was wrong : [#350](https://github.com/dooboolab/flutter_sound/pull/350)
+
+## 4.0.5
+
+- Fix as bug in the Focus gain, on iOS [#324](https://github.com/dooboolab/flutter_sound/issues/324#issuecomment-630970336)
 
 ## 4.0.4+1
 
@@ -31,7 +105,7 @@
 ## 4.0.0
 
 - Adds pedantic lints and major refactoring of example with bug fixes. [#279](https://github.com/dooboolab/flutter_sound/pull/279)
-- Native code is directely linked with FFmpeg. Flutter Sound App does not need any more to depends on flutter_ffmpeg [#265](https://github.com/dooboolab/flutter_sound/issues/265) and [273](https://github.com/dooboolab/flutter_sound/issues/273)
+- Native code is directely linked with FFmpeg. Flutter Sound App does not need any more to depends on flutter_ffmpeg [#265](https://github.com/dooboolab/flutter_sound/issues/265) and [#273](https://github.com/dooboolab/flutter_sound/issues/273)
 - Add a new parameter in the Track structure : albumArtFile
 - A new flutter plugin is born : `flutter_sound_lite` [#291](https://github.com/dooboolab/flutter_sound/issues/291)
 - Adds a new parameter `whenPaused:` to the `startPlayerFromTrack()` function. [#314](https://github.com/dooboolab/flutter_sound/issues/314)
@@ -62,7 +136,7 @@
 - Add _removePlayerCallback, _removeRecorderCallback() and _removeDbPeakCallback() inside release() [#248](https://github.com/dooboolab/flutter_sound/pull/248)
 - Fix conflict with permission_handler 5.x.x [#274](https://github.com/dooboolab/flutter_sound/pull/274)
 - On iOS, ```setMeteringEnabled:YES``` is called during ```setDbLevelEnabled()``` [#252](https://github.com/dooboolab/flutter_sound/pull/252), [#251](https://github.com/dooboolab/flutter_sound/issues/251)
-- The call to ```initialize()``` is now optional [271](https://github.com/dooboolab/flutter_sound/issues/271)
+- The call to ```initialize()``` is now optional [#271](https://github.com/dooboolab/flutter_sound/issues/271)
 - README : [#265](https://github.com/dooboolab/flutter_sound/issues/265)
 
 ## 3.1.5
