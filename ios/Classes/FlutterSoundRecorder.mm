@@ -262,13 +262,14 @@ public:
                 NSNumber* duration =    [NSNumber numberWithLong: (long)(audioRecorder.currentTime * 1000 )];
 
                 
-                [audioRecorder updateMeters];
+                [audioRecorder updateMeter];
                 return duration;
         }
         virtual NSNumber* dbPeakProgress()
         {
-                NSNumber* normalizedPeakLevel = [NSNumber numberWithDouble:MIN(pow(10.0, [audioRecorder peakPowerForChannel:0] / 20.0) * 160.0, 160.0)];
-		return normalizedPeakLevel;
+              NSNumber* duration =    [NSNumber numberWithLong: (long)(audioRecorder.currentTime * 1000 )];
+              [audioRecorder updateMeters];
+              return duration;
 
         }
 

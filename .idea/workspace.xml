@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdf1bf67-b966-4dae-b287-4f323375fb2f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/flutter_sound_lite.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/flutter_sound_lite.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/FlutterSoundRecorder.mm" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/FlutterSoundRecorder.mm" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
