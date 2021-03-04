@@ -1,17 +1,17 @@
 name: flutter_sound_lite
-version: 2.0.2
+version: 2.0.3
 description: Flutter plugin that relates to sound like audio and recorder.
 #author: dooboolab<dooboolab@gmail.com>
 homepage: https://github.com/dooboolab/flutter_sound
 environment:
-    sdk: ">=1.19.0 <3.0.0"
-    flutter: ">=1.12.0 <2.0.0"
+  sdk: ">=1.19.0 <3.0.0"
+  flutter: ">=1.12.0 <2.0.0"
 dependencies:
-  path_provider: ">=1.0.0 <2.0.0"
+  path_provider: ^1.6.27
   logger: ^0.7.0+2
-  intl: ^0.16.1
+  intl: ^0.17.0
   recase: ^3.0.0
-  uuid: ^2.0.4
+  uuid: ^2.2.0
   provider: ^4.1.0
   flutter_spinkit: ^4.0.0
   path: ">=1.0.0 <2.0.0"
