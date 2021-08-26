@@ -16,7 +16,6 @@
  * along with Flutter-Sound.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-
 import "dart:core" as core show StackTrace;
 import "dart:core";
 import 'dart:io';
@@ -31,22 +30,22 @@ class StackTraceImpl implements core.StackTrace {
   final String _workingDirectory;
   final int _skipFrames;
 
-  List<Stackframe> _frames;
+  List<Stackframe>? _frames;
 
   /// You can suppress call frames from showing
   /// by specifing a non-zero value for [skipFrames]
   /// If the workingDirectory is provided we will output
   /// a full file path to the dart library.
-  StackTraceImpl({int skipFrames = 0, String workingDirectory})
+  StackTraceImpl({int? skipFrames = 0, String? workingDirectory})
       : _stackTrace = core.StackTrace.current,
-        _skipFrames = skipFrames + 1, // always skip ourselves.
-        _workingDirectory = workingDirectory;
+        _skipFrames = (skipFrames ?? 0) + 1,
+        // always skip ourselves.
+        _workingDirectory = workingDirectory ?? '';
 
   ///
-  StackTraceImpl.fromStackTrace(this._stackTrace,
-      {String workingDirectory, int skipFrames = 0})
-      : _skipFrames = skipFrames,
-        _workingDirectory = workingDirectory {
+  StackTraceImpl.fromStackTrace(this._stackTrace, {String? workingDirectory, int? skipFrames = 0})
+      : _skipFrames = skipFrames ?? 0,
+        _workingDirectory = workingDirectory ?? '' {
     if (_stackTrace is StackTraceImpl) {
       _frames = (_stackTrace as StackTraceImpl).frames;
     }
@@ -78,15 +77,14 @@ class StackTraceImpl implements core.StackTrace {
 
   @override
   String toString() {
-    return formatStackTrace();
+    return formatStackTrace() ?? '';
   }
 
   /// Outputs a formatted string of the current stack_trace_nj
   /// showing upto [methodCount] methods in the trace.
   /// [methodCount] defaults to 10.
 
-  String formatStackTrace(
-      {bool showPath = false, int methodCount = 10, int skipFrames = 0}) {
+  String? formatStackTrace({bool showPath = false, int methodCount = 10, int skipFrames = 0}) {
     var formatted = <String>[];
     var count = 0;
 
@@ -101,8 +99,7 @@ class StackTraceImpl implements core.StackTrace {
       } else {
         sourceFile = basename(stackFrame.sourceFile.path);
       }
-      var newLine =
-          ("$sourceFile : ${stackFrame.details} : ${stackFrame.lineNo}");
+      var newLine = ("$sourceFile : ${stackFrame.details} : ${stackFrame.lineNo}");
 
       if (_workingDirectory != null) {
         formatted.add('file:///$_workingDirectory$newLine');
@@ -126,7 +123,7 @@ class StackTraceImpl implements core.StackTrace {
     if (_frames == null) {
       _frames = _extractFrames();
     }
-    return _frames;
+    return _frames ?? [];
   }
 
   List<Stackframe> _extractFrames() {
@@ -148,15 +145,15 @@ class StackTraceImpl implements core.StackTrace {
       // file:///.../package/filename.dart:column:line
       // package:/package/.path./filename.dart:column:line
       var source = match.group(2);
-      var sourceParts = source.split(":");
+      var sourceParts = source?.split(":");
       ArgumentError.value(
-          sourceParts.length == 4,
+          sourceParts?.length == 4,
           "Stackframe source does not contain the expeted no of colons "
           "'$source'");
 
       var column = "0";
       var lineNo = "0";
-      var sourcePath = sourceParts[1];
+      var sourcePath = sourceParts![1];
       if (sourceParts.length > 2) {
         lineNo = sourceParts[2];
       }
@@ -171,8 +168,7 @@ class StackTraceImpl implements core.StackTrace {
       sourcePath = sourcePath.replaceAll("package:", "");
       // sourcePath = sourcePath.replaceFirst("<package_name>", "/lib");
 
-      var frame = Stackframe(
-          File(sourcePath), int.parse(lineNo), int.parse(column), details);
+      var frame = Stackframe(File(sourcePath), int.parse(lineNo), int.parse(column), details ?? '');
       stackFrames.add(frame);
     }
     return stackFrames;

@@ -2,7 +2,69 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdf1bf67-b966-4dae-b287-4f323375fb2f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/src/platformInterface/flutter_sound_helper_platform_interface.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/src/platformInterface/flutter_sound_platform_interface.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/src/platformInterface/flutter_sound_recorder_platform_interface.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/src/platformInterface/method_channel_flutter_sound_helper.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/src/platformInterface/method_channel_flutter_sound_recorder.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/demo/demo.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/demo/demo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/livePlaybackWithBackPressure/livePlaybackWithBackPressure.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/livePlaybackWithBackPressure/livePlaybackWithBackPressure.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/livePlaybackWithoutBackPressure/livePlaybackWithoutBackPressure.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/livePlaybackWithoutBackPressure/livePlaybackWithoutBackPressure.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/recordToStream/recordToStreamExample.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/recordToStream/recordToStreamExample.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/soundEffect/soundEffect.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/soundEffect/soundEffect.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/demo3_body.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/demo_active_codec.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/demo_asset_player.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/demo_audio_state.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/demo_common.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/demo_drop_downs.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/demo_media_path.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/demo_player_state.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/drop_downs.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/recorder_controls.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/recorder_state.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/recording_player.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/remote_player.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/temp_file.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/track_switched.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/widgetUI.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/widgetUIDemo.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/test/widget_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/flutter_sound.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flutter_sound.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/flutter_ffmpeg.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/flutter_sound_helper.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/flutter_sound_player.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/flutter_sound_recorder.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/flutter_sound_recorder.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/ui/grayed_out.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/ui/local_context.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/ui/recorder_playback_controller.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/ui/slider.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/ui/slider_position.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/ui/sound_player_ui.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/ui/sound_recorder_ui.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/ui/temp_file_system.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/ui/tick_builder.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/util/ansi_color.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/util/enum_helper.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/util/format.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/util/local_date.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/util/local_time.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/util/log.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/util/log_level.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/util/recorded_audio.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/util/stack_trace_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/util/stack_trace_impl.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/wave_header.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/wave_header.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,9 +92,14 @@
     <property name="android.sdk.path" value="$PROJECT_DIR$/../Library/Android/sdk" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/src" />
+    <property name="settings.editor.selected.configurable" value="flutter.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/src" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
@@ -54,25 +121,33 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1878" height="285" key="GridCell.Tab.0.bottom" timestamp="1614751366498">
-      <screen x="0" y="23" width="1920" height="1057" />
+    <state x="773" y="272" key="#com.intellij.ide.util.MemberChooser" timestamp="1629959049979">
+      <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state width="1878" height="285" key="GridCell.Tab.0.bottom/1920.1103.1680.1027/0.23.1920.1057@0.23.1920.1057" timestamp="1614751366498" />
-    <state width="1878" height="285" key="GridCell.Tab.0.center" timestamp="1614751366498">
-      <screen x="0" y="23" width="1920" height="1057" />
+    <state x="773" y="272" key="#com.intellij.ide.util.MemberChooser/1920.827.1680.1025/0.25.1920.1055@0.25.1920.1055" timestamp="1629959049979" />
+    <state x="698" y="303" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1629959070254">
+      <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state width="1878" height="285" key="GridCell.Tab.0.center/1920.1103.1680.1027/0.23.1920.1057@0.23.1920.1057" timestamp="1614751366498" />
-    <state width="1878" height="285" key="GridCell.Tab.0.left" timestamp="1614751366497">
-      <screen x="0" y="23" width="1920" height="1057" />
+    <state x="698" y="303" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.827.1680.1025/0.25.1920.1055@0.25.1920.1055" timestamp="1629959070254" />
+    <state width="1878" height="282" key="GridCell.Tab.0.bottom" timestamp="1629955601798">
+      <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state width="1878" height="285" key="GridCell.Tab.0.left/1920.1103.1680.1027/0.23.1920.1057@0.23.1920.1057" timestamp="1614751366497" />
-    <state width="1878" height="285" key="GridCell.Tab.0.right" timestamp="1614751366498">
-      <screen x="0" y="23" width="1920" height="1057" />
+    <state width="1878" height="282" key="GridCell.Tab.0.bottom/1920.827.1680.1025/0.25.1920.1055@0.25.1920.1055" timestamp="1629955601798" />
+    <state width="1878" height="282" key="GridCell.Tab.0.center" timestamp="1629955601797">
+      <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state width="1878" height="285" key="GridCell.Tab.0.right/1920.1103.1680.1027/0.23.1920.1057@0.23.1920.1057" timestamp="1614751366498" />
-    <state x="653" y="290" width="613" height="522" key="find.popup" timestamp="1614764828528">
-      <screen x="0" y="23" width="1920" height="1057" />
+    <state width="1878" height="282" key="GridCell.Tab.0.center/1920.827.1680.1025/0.25.1920.1055@0.25.1920.1055" timestamp="1629955601797" />
+    <state width="1878" height="282" key="GridCell.Tab.0.left" timestamp="1629955601797">
+      <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="653" y="290" width="613" height="522" key="find.popup/1920.1103.1680.1027/0.23.1920.1057@0.23.1920.1057" timestamp="1614764828528" />
+    <state width="1878" height="282" key="GridCell.Tab.0.left/1920.827.1680.1025/0.25.1920.1055@0.25.1920.1055" timestamp="1629955601797" />
+    <state width="1878" height="282" key="GridCell.Tab.0.right" timestamp="1629955601798">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state width="1878" height="282" key="GridCell.Tab.0.right/1920.827.1680.1025/0.25.1920.1055@0.25.1920.1055" timestamp="1629955601798" />
+    <state x="461" y="188" key="SettingsEditor" timestamp="1629955711207">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="461" y="188" key="SettingsEditor/1920.827.1680.1025/0.25.1920.1055@0.25.1920.1055" timestamp="1629955711207" />
   </component>
 </project>

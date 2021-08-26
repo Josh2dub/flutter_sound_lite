@@ -76,11 +76,11 @@ class WaveHeader
         /** Indicates ULAW format. */
         static final int FORMAT_ULAW = 7;
 
-        int mFormat;
-        int mNumChannels;
-        int mSampleRate;
-        int mBitsPerSample;
-        int mNumBytes;
+        int? mFormat;
+        int? mNumChannels;
+        int? mSampleRate;
+        int? mBitsPerSample;
+        int? mNumBytes;
 
    
         /**
@@ -106,7 +106,7 @@ class WaveHeader
          * @return format field,
          * one of {@link #FORMAT_PCM}, {@link #FORMAT_ULAW}, or {@link #FORMAT_ALAW}.
          */
-        int getFormat()
+        int? getFormat()
         {
                 return mFormat;
         }
@@ -127,7 +127,7 @@ class WaveHeader
          * Get the number of channels.
          * @return number of channels, 1 for mono, 2 for stereo.
          */
-        int getNumChannels()
+        int? getNumChannels()
         {
                 return mNumChannels;
         }
@@ -147,7 +147,7 @@ class WaveHeader
          * Get the sample rate.
          * @return sample rate, typically 8000, 11025, 16000, 22050, or 44100 hz.
          */
-        int getSampleRate()
+        int? getSampleRate()
         {
                 return mSampleRate;
         }
@@ -168,7 +168,7 @@ class WaveHeader
          * @return number of bits per sample,
          * usually 16 for PCM, 8 for ULAW or 8 for ALAW.
          */
-        int getBitsPerSample()
+        int? getBitsPerSample()
         {
                 return mBitsPerSample;
         }
@@ -189,7 +189,7 @@ class WaveHeader
          * Get the size of audio data after this header, in bytes.
          * @return size of audio data after this header, in bytes.
          */
-        int getNumBytes()
+        int? getNumBytes()
         {
                 return mNumBytes;
         }
@@ -273,20 +273,20 @@ class WaveHeader
         {
                 /* RIFF header */
                 writeId(out, "RIFF");
-                writeInt(out, 36 + mNumBytes);
+                writeInt(out, 36 + (mNumBytes ?? 0));
                 writeId(out, "WAVE");
                 /* fmt chunk */
                 writeId(out, "fmt ");
                 writeInt(out, 16);
-                writeint(out, mFormat);
-                writeint(out, mNumChannels);
-                writeInt(out, mSampleRate);
-                writeInt(out, (mNumChannels * mSampleRate * mBitsPerSample / 8).floor());
-                writeint(out, (mNumChannels * mBitsPerSample / 8).floor());
-                writeint(out, mBitsPerSample);
+                writeint(out, (mFormat ?? 0));
+                writeint(out, (mNumChannels ?? 0));
+                writeInt(out, (mSampleRate ?? 0));
+                writeInt(out, ((mNumChannels ?? 0) * (mSampleRate ?? 0) * (mBitsPerSample ?? 0) / 8).floor());
+                writeint(out, ((mNumChannels ?? 0) * (mBitsPerSample ?? 0) / 8).floor());
+                writeint(out, (mBitsPerSample ?? 0));
                 /* data chunk */
                 writeId(out, "data");
-                writeInt(out, mNumBytes);
+                writeInt(out, (mNumBytes ?? 0));
 
                 return HEADER_LENGTH;
         }
