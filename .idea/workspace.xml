@@ -2,69 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdf1bf67-b966-4dae-b287-4f323375fb2f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/src/platformInterface/flutter_sound_helper_platform_interface.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/platformInterface/flutter_sound_platform_interface.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/platformInterface/flutter_sound_recorder_platform_interface.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/platformInterface/method_channel_flutter_sound_helper.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/platformInterface/method_channel_flutter_sound_recorder.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/demo/demo.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/demo/demo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/livePlaybackWithBackPressure/livePlaybackWithBackPressure.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/livePlaybackWithBackPressure/livePlaybackWithBackPressure.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/livePlaybackWithoutBackPressure/livePlaybackWithoutBackPressure.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/livePlaybackWithoutBackPressure/livePlaybackWithoutBackPressure.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/recordToStream/recordToStreamExample.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/recordToStream/recordToStreamExample.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/soundEffect/soundEffect.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/soundEffect/soundEffect.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/demo3_body.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/demo_active_codec.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/demo_asset_player.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/demo_audio_state.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/demo_common.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/demo_drop_downs.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/demo_media_path.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/demo_player_state.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/drop_downs.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/recorder_controls.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/recorder_state.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/recording_player.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/remote_player.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/temp_file.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/demo_util/track_switched.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/widgetUI.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/widgetUI/widgetUIDemo.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/test/widget_test.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/flutter_sound.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flutter_sound.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/flutter_ffmpeg.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/flutter_sound_helper.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/flutter_sound_player.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/flutter_sound_recorder.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/flutter_sound_recorder.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/ui/grayed_out.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/ui/local_context.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/ui/recorder_playback_controller.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/ui/slider.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/ui/slider_position.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/ui/sound_player_ui.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/ui/sound_recorder_ui.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/ui/temp_file_system.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/ui/tick_builder.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/util/ansi_color.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/util/enum_helper.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/util/format.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/util/local_date.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/util/local_time.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/util/log.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/util/log_level.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/util/recorded_audio.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/util/stack_trace_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/util/stack_trace_impl.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/wave_header.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/wave_header.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

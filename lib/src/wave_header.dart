@@ -37,7 +37,6 @@ import 'dart:core';
 import 'dart:io';
 import 'dart:io' show Platform;
 import 'dart:typed_data' show Uint8List;
-import 'package:synchronized/synchronized.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 
