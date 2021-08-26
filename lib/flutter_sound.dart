@@ -16,7 +16,17 @@
  * along with Flutter-Sound.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import 'package:flutter/material.dart';
+
 export 'src/flutter_sound_recorder.dart';
+export 'src/platformInterface/flutter_sound_helper_platform_interface.dart';
+export 'src/platformInterface/flutter_sound_platform_interface.dart';
+export 'src/platformInterface/flutter_sound_recorder_platform_interface.dart';
+export 'src/platformInterface/method_channel_flutter_sound_helper.dart';
+export 'src/platformInterface/method_channel_flutter_sound_recorder.dart';
+
+
+import 'src/platformInterface/flutter_sound_platform_interface.dart';
 
 const List<String> ext = [
   '.aac', // defaultCodec
