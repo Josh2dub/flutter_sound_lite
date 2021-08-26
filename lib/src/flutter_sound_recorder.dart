@@ -133,7 +133,7 @@ class FlutterSoundRecorder implements FlutterSoundRecorderCallback {
       throw (_notOpen());
     }
 
-    bool result;
+    bool? result;
     // For encoding ogg/opus on ios, we need to support two steps :
     // - encode CAF/OPPUS (with native Apple AVFoundation)
     // - remux CAF file format to OPUS file format (with ffmpeg)
@@ -146,7 +146,7 @@ class FlutterSoundRecorder implements FlutterSoundRecorderCallback {
     } else {
       result = await FlutterSoundRecorderPlatform.instance.isEncoderSupported(this, codec: codec);
     }
-    return result;
+    return result ?? false;
   }
 
   void _setRecorderCallback() {

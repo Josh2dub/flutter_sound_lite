@@ -98,7 +98,7 @@ abstract class FlutterSoundRecorderPlatform extends PlatformInterface {
     throw UnimplementedError('invokeMethod() has not been implemented.');
   }
 
-  Future<bool> isEncoderSupported(FlutterSoundRecorderCallback callback, {Codec? codec,})
+  Future<bool?> isEncoderSupported(FlutterSoundRecorderCallback callback, {Codec? codec,})
   {
     throw UnimplementedError('invokeMethod() has not been implemented.');
   }
