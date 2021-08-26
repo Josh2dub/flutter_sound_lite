@@ -146,7 +146,7 @@ class MethodChannelFlutterSoundRecorder extends FlutterSoundRecorderPlatform {
   }
 
   @override
-  Future<bool> isEncoderSupported(
+  Future<bool?> isEncoderSupported(
     FlutterSoundRecorderCallback callback, {
     Codec? codec,
   }) {
@@ -156,7 +156,7 @@ class MethodChannelFlutterSoundRecorder extends FlutterSoundRecorderPlatform {
       {
         'codec': codec?.index,
       } as Map<String, dynamic>,
-    ) as Future<bool>;
+    );
   }
 
   @override
