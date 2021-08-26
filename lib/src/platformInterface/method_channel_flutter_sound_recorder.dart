@@ -81,20 +81,20 @@ class MethodChannelFlutterSoundRecorder extends FlutterSoundRecorderPlatform {
     return _channel.invokeMethod(methodName, call);
   }
 
-  Future<int> invokeMethodInt(FlutterSoundRecorderCallback callback, String methodName, Map<String, dynamic> call) {
+  Future<int?> invokeMethodInt(FlutterSoundRecorderCallback callback, String methodName, Map<String, dynamic> call) {
     call['slotNo'] = findSession(callback);
-    return _channel.invokeMethod<int>(methodName, call) as Future<int>;
+    return _channel.invokeMethod<int>(methodName, call);
   }
 
-  Future<bool> invokeMethodBool(FlutterSoundRecorderCallback callback, String methodName, Map<String, dynamic> call) {
+  Future<bool?> invokeMethodBool(FlutterSoundRecorderCallback callback, String methodName, Map<String, dynamic> call) {
     call['slotNo'] = findSession(callback);
-    return _channel.invokeMethod<bool>(methodName, call) as Future<bool>;
+    return _channel.invokeMethod<bool>(methodName, call);
   }
 
-  Future<String> invokeMethodString(
+  Future<String?> invokeMethodString(
       FlutterSoundRecorderCallback callback, String methodName, Map<String, dynamic> call) {
     call['slotNo'] = findSession(callback);
-    return _channel.invokeMethod<String>(methodName, call) as Future<String>;
+    return _channel.invokeMethod<String>(methodName, call);
   }
 
   @override
