@@ -24,7 +24,7 @@ class MethodChannelFlutterSoundRecorder extends FlutterSoundRecorderPlatform {
     });
   }
 
-  Future<dynamic> channelMethodCallHandler(MethodCall call) async{
+  Future<dynamic> channelMethodCallHandler(MethodCall call) async {
     FlutterSoundRecorderCallback? aRecorder = _slots[call.arguments['slotNo'] as int];
 
     switch (call.method) {
@@ -81,18 +81,17 @@ class MethodChannelFlutterSoundRecorder extends FlutterSoundRecorderPlatform {
     return _channel.invokeMethod(methodName, call);
   }
 
-  Future<int?> invokeMethodInt(FlutterSoundRecorderCallback callback, String methodName, Map<String, dynamic> call) {
+  Future invokeMethodInt(FlutterSoundRecorderCallback callback, String methodName, Map<String, dynamic> call) {
     call['slotNo'] = findSession(callback);
     return _channel.invokeMethod<int>(methodName, call);
   }
 
-  Future<bool?> invokeMethodBool(FlutterSoundRecorderCallback callback, String methodName, Map<String, dynamic> call) {
+  Future invokeMethodBool(FlutterSoundRecorderCallback callback, String methodName, Map<String, dynamic> call) {
     call['slotNo'] = findSession(callback);
     return _channel.invokeMethod<bool>(methodName, call);
   }
 
-  Future<String?> invokeMethodString(
-      FlutterSoundRecorderCallback callback, String methodName, Map<String, dynamic> call) {
+  Future invokeMethodString(FlutterSoundRecorderCallback callback, String methodName, Map<String, dynamic> call) {
     call['slotNo'] = findSession(callback);
     return _channel.invokeMethod<String>(methodName, call);
   }
@@ -109,7 +108,7 @@ class MethodChannelFlutterSoundRecorder extends FlutterSoundRecorderPlatform {
         'mode': mode?.index,
         'audioFlags': audioFlags,
         'device': device?.index,
-      } as Map<String,dynamic>),
+      } as Map<String, dynamic>),
     );
   }
 
@@ -142,7 +141,7 @@ class MethodChannelFlutterSoundRecorder extends FlutterSoundRecorderPlatform {
         'mode': mode?.index,
         'audioFlags': audioFlags,
         'device': device?.index,
-      } as Map<String,dynamic>),
+      } as Map<String, dynamic>),
     );
   }
 
@@ -156,7 +155,7 @@ class MethodChannelFlutterSoundRecorder extends FlutterSoundRecorderPlatform {
       'isEncoderSupported',
       {
         'codec': codec?.index,
-      } as Map<String,dynamic>,
+      } as Map<String, dynamic>,
     ) as Future<bool>;
   }
 
@@ -168,7 +167,7 @@ class MethodChannelFlutterSoundRecorder extends FlutterSoundRecorderPlatform {
     return invokeMethodVoid(
       callback,
       'setSubscriptionDuration',
-      {'duration': duration?.inMilliseconds} as Map<String,dynamic>,
+      {'duration': duration?.inMilliseconds} as Map<String, dynamic>,
     );
   }
 
@@ -194,7 +193,7 @@ class MethodChannelFlutterSoundRecorder extends FlutterSoundRecorderPlatform {
         'codec': codec?.index,
         'toStream': toStream ?? false ? 1 : 0,
         'audioSource': audioSource?.index,
-      } as Map<String,dynamic>,
+      } as Map<String, dynamic>,
     );
   }
 
