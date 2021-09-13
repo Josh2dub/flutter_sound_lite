@@ -254,7 +254,6 @@ const int allowBlueToothA2DP = 32;
         enum AudioFocus audioFocus = (enum AudioFocus) [call.arguments[@"focus"] intValue];
         enum SessionCategory category = (enum SessionCategory)[call.arguments[@"category"] intValue];
         enum SessionMode mode = (enum SessionMode)[call.arguments[@"mode"] intValue];
-        int flags = [call.arguments[@"audioFlags"] intValue];
         int sessionCategoryOption = 0;
         if ( audioFocus != abandonFocus && audioFocus != doNotRequestFocus && audioFocus != requestFocus)
         {
@@ -268,7 +267,8 @@ const int allowBlueToothA2DP = 32;
                         case requestFocusTransientExclusive:
                         case requestFocusAndStopOthers: sessionCategoryOption |= 0; break; // NOOP
                 }
-                
+
+                int flags = [call.arguments[@"audioFlags"] intValue];
                 if (flags & outputToSpeaker)
                         sessionCategoryOption |= AVAudioSessionCategoryOptionDefaultToSpeaker;
                 if (flags & allowAirPlay)

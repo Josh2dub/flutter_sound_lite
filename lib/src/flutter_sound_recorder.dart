@@ -278,7 +278,6 @@ class FlutterSoundRecorder implements FlutterSoundRecorderCallback {
   Future<void> setAudioFocus({AudioFocus focus = AudioFocus.requestFocusTransient,
     SessionCategory category = SessionCategory.playAndRecord,
     SessionMode mode = SessionMode.modeDefault,
-    int audioFlags = outputToSpeaker,
     AudioDevice device = AudioDevice.speaker}) async {
     if (isInited == Initialized.initializationInProgress) {
       throw (_InitializationInProgress());
@@ -291,7 +290,6 @@ class FlutterSoundRecorder implements FlutterSoundRecorderCallback {
       focus: focus,
       category: category,
       mode: mode,
-      audioFlags:audioFlags,
       device: device,
     );
   }
