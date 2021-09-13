@@ -55,12 +55,11 @@ class FlutterSoundRecorder implements FlutterSoundRecorderCallback {
 
   //FlautoPlugin getPlugin() => flautoRecorderPlugin;
 
-  Future<FlutterSoundRecorder> openAudioSession(
-      {AudioFocus focus = AudioFocus.requestFocusTransient,
-      SessionCategory category = SessionCategory.playAndRecord,
-      SessionMode mode = SessionMode.modeDefault,
-      int audioFlags = outputToSpeaker,
-      AudioDevice device = AudioDevice.speaker}) async {
+  Future<FlutterSoundRecorder> openAudioSession({AudioFocus focus = AudioFocus.requestFocusTransient,
+    SessionCategory category = SessionCategory.playAndRecord,
+    SessionMode mode = SessionMode.modeDefault,
+    int audioFlags = outputToSpeaker,
+    AudioDevice device = AudioDevice.speaker}) async {
     if (isInited == Initialized.fullyInitialized) {
       return this;
     }
@@ -118,7 +117,7 @@ class FlutterSoundRecorder implements FlutterSoundRecorderCallback {
   @override
   void recordingData({Uint8List? data}) {
     if (_userStreamSink != null) {
-      if(data != null) {
+      if (data != null) {
         _userStreamSink?.add(data);
       }
     }
@@ -158,7 +157,7 @@ class FlutterSoundRecorder implements FlutterSoundRecorderCallback {
   void _removeRecorderCallback() {
     if (_recorderController != null) {
       _recorderController
-        //..add(null) // We keep that strange line for backward compatibility
+      //..add(null) // We keep that strange line for backward compatibility
         ?..close();
       _recorderController = null;
     }
@@ -255,7 +254,6 @@ class FlutterSoundRecorder implements FlutterSoundRecorderCallback {
           audioSource: audioSource);
 
       recorderState = RecorderState.isRecording;
-
     } catch (err) {
       throw Exception(err);
     }
@@ -275,14 +273,13 @@ class FlutterSoundRecorder implements FlutterSoundRecorderCallback {
     }
 
     recorderState = RecorderState.isStopped;
-
   }
 
-  Future<void> setAudioFocus(
-      {AudioFocus focus = AudioFocus.requestFocusTransient,
-      SessionCategory category = SessionCategory.playAndRecord,
-      SessionMode mode = SessionMode.modeDefault,
-      AudioDevice device = AudioDevice.speaker}) async {
+  Future<void> setAudioFocus({AudioFocus focus = AudioFocus.requestFocusTransient,
+    SessionCategory category = SessionCategory.playAndRecord,
+    SessionMode mode = SessionMode.modeDefault,
+    int audioFlags = outputToSpeaker,
+    AudioDevice device = AudioDevice.speaker}) async {
     if (isInited == Initialized.initializationInProgress) {
       throw (_InitializationInProgress());
     }
@@ -294,6 +291,7 @@ class FlutterSoundRecorder implements FlutterSoundRecorderCallback {
       focus: focus,
       category: category,
       mode: mode,
+      audioFlags:audioFlags,
       device: device,
     );
   }
