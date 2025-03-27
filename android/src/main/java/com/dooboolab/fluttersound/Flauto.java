@@ -28,7 +28,6 @@ import androidx.annotation.NonNull;
 
 
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
-import io.flutter.plugin.common.PluginRegistry.Registrar;
 
 
 // this enum MUST be synchronized with lib/flutter_sound.dart and ios/Classes/FlutterSoundPlugin.h
@@ -72,24 +71,6 @@ public class Flauto
 		//TrackPlayerPlugin.attachTrackPlayer ( ctx, binding.getBinaryMessenger () );
         if (FULL_FLAVOR) ;//{FlutterFFmpegPlugin.attachFFmpegPlugin( ctx, binding.getBinaryMessenger() );}
 	}
-
-
-	/**
-	 * Plugin registration.
-	 */
-	public static void registerWith ( Registrar registrar )
-	{
-		reg = registrar;
-		ctx = registrar.context ();
-		androidActivity = registrar.activity ();
-
-		FlautoPlayerManager.attachFlautoPlayer ( ctx, registrar.messenger () );
-		FlautoRecorderManager.attachFlautoRecorder ( ctx, registrar.messenger ()  );
-		//TrackPlayerPlugin.attachTrackPlayer ( ctx, registrar.messenger ()  );
-        if (FULL_FLAVOR) ;//{FlutterFFmpegPlugin.attachFFmpegPlugin(ctx,registrar.messenger ()  );}
-
-	}
-
 
 	@Override
 	public void onDetachedFromEngine ( FlutterPlugin.FlutterPluginBinding binding )
